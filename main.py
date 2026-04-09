@@ -25,3 +25,9 @@ df.drop('Cabin', axis=1, inplace=True)
 df['Sex'] = df['Sex'].map({'male': 0, 'female': 1})
 
 df = pd.get_dummies(df, columns=['Embarked'], drop_first=True)
+
+# New feature
+df['FamilySize'] = df['SibSp'] + df['Parch'] + 1
+
+# New feature (extra improvement)
+df['IsAlone'] = (df['FamilySize'] == 1).astype(int)
