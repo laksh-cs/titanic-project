@@ -35,3 +35,17 @@ print(df.groupby('Sex')['Survived'].mean())
 
 print("\nAverage Age:")
 print(df['Age'].mean())
+
+# ========================
+# Feature Engineering
+# ========================
+
+# Create new feature: Family Size
+df['FamilySize'] = df['SibSp'] + df['Parch'] + 1
+
+# Drop unnecessary columns
+df.drop(['Name', 'Ticket', 'PassengerId'], axis=1, inplace=True)
+
+# Check data
+print("\nAfter Feature Engineering:")
+print(df.head())
