@@ -31,3 +31,9 @@ df['FamilySize'] = df['SibSp'] + df['Parch'] + 1
 
 # New feature (extra improvement)
 df['IsAlone'] = (df['FamilySize'] == 1).astype(int)
+
+
+from sklearn.tree import DecisionTreeClassifier
+
+model = DecisionTreeClassifier()
+model.fit(X_train, y_train)
