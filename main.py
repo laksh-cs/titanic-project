@@ -49,3 +49,21 @@ df.drop(['Name', 'Ticket', 'PassengerId'], axis=1, inplace=True)
 # Check data
 print("\nAfter Feature Engineering:")
 print(df.head())
+
+# ========================
+# Model Training
+# ========================
+
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+
+# Define features and target
+X = df.drop('Survived', axis=1)
+y = df['Survived']
+
+# Split data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+# Train model
+model = LogisticRegression(max_iter=1000)
+model.fit(X_train, y_train)
