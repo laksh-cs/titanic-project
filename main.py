@@ -67,3 +67,14 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 # Train model
 model = LogisticRegression(max_iter=1000)
 model.fit(X_train, y_train)
+
+# ========================
+# Model Evaluation
+# ========================
+
+from sklearn.metrics import accuracy_score, confusion_matrix
+
+y_pred = model.predict(X_test)
+
+print("\nModel Accuracy:", accuracy_score(y_test, y_pred))
+print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred))
