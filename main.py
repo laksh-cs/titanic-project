@@ -22,3 +22,16 @@ df['Sex'] = df['Sex'].map({'male': 0, 'female': 1})
 df = pd.get_dummies(df, columns=['Embarked'], drop_first=True)
 
 print(df.info())
+
+# ========================
+# EDA (Exploratory Data Analysis)
+# ========================
+
+print("\nSurvival Count:")
+print(df['Survived'].value_counts())
+
+print("\nSurvival by Gender:")
+print(df.groupby('Sex')['Survived'].mean())
+
+print("\nAverage Age:")
+print(df['Age'].mean())
